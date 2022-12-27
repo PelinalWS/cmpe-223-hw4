@@ -1,7 +1,8 @@
 
 public class Heap<T> {
 	
-		private static int[] heap;
+	private static int[] heap;
+	private static int shiftIndex = -1;
 
 	private int parent(int pos) {
 		return (pos - 1) / 2;
@@ -19,8 +20,11 @@ public class Heap<T> {
 		heap = new int[size];
 	}
 
-	public void add(int key, T data) {
-
+	public void add(int key) {
+  		shiftIndex++;
+		heap[shiftIndex] = p;
+		shiftUp(size);
+}
 	}
 
 	public void reheap(int n, int i) {
@@ -29,7 +33,7 @@ public class Heap<T> {
 	}
 	
 	private static void shiftUp(int i){
-		while (i > 0 && heap[parent(i)] < H[i]){
+		while (i > 0 && heap[parent(i)] < heap[i]){
 			swap(parent(i), i);
 			i = parent(i);
 		}
@@ -55,8 +59,8 @@ public class Heap<T> {
 	}
 	
 	private static void swap(int i, int j){
-		int temp= H[i];
-		H[i] = H[j];
-		H[j] = temp;
+		int temp= heap[i];
+		heap[i] = heap[j];
+		heap[j] = temp;
 	}
 }
