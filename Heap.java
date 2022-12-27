@@ -32,12 +32,12 @@ public class Heap<T> {
  		 int maxIndex = i;
  		 int left = leftChild(i);
  
-  		if (l <= size && H[left] > H[maxIndex]){
+  		if (l <= size && heap[left] > heap[maxIndex]){
    			maxIndex = l;
   		}
  		  int right = rightChild(i);
  
-  		if (r <= size && H[right] > H[maxIndex]){
+  		if (r <= size && heap[right] > heap[maxIndex]){
 			maxIndex = r;
 		}
  
@@ -45,5 +45,11 @@ public class Heap<T> {
 			  swap(i, maxIndex);
 			  shiftDown(maxIndex);
 		  }
+	}
+	
+	private static void swap(int i, int j){
+		int temp= H[i];
+		H[i] = H[j];
+		H[j] = temp;
 	}
 }
