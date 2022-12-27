@@ -27,5 +27,23 @@ public class Heap<T> {
 		int root = i;
 		
 	}
-
+	
+	private static void shiftDown(int i){
+ 		 int maxIndex = i;
+ 		 int left = leftChild(i);
+ 
+  		if (l <= size && H[left] > H[maxIndex]){
+   			maxIndex = l;
+  		}
+ 		  int right = rightChild(i);
+ 
+  		if (r <= size && H[right] > H[maxIndex]){
+			maxIndex = r;
+		}
+ 
+		  if (i != maxIndex){
+			  swap(i, maxIndex);
+			  shiftDown(maxIndex);
+		  }
+	}
 }
