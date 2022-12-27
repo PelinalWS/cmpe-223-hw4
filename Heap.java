@@ -27,10 +27,11 @@ public class Heap<T> {
 }
 	}
 
-	public void reheap(int n, int i) {
-		int root = i;
-		
-	}
+	public static void deleteMax(int i){
+		H[i] = getMax() + 1;
+		shiftUp(i);
+		extractMax();
+}
 	
 	private static void shiftUp(int i){
 		while (i > 0 && heap[parent(i)] < heap[i]){
