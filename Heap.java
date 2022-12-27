@@ -28,6 +28,13 @@ public class Heap<T> {
 		
 	}
 	
+	private static void shiftUp(int i){
+		while (i > 0 && heap[parent(i)] < H[i]){
+			swap(parent(i), i);
+			i = parent(i);
+		}
+	}
+	
 	private static void shiftDown(int i){
  		 int maxIndex = i;
  		 int left = leftChild(i);
